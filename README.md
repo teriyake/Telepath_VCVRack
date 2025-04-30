@@ -81,7 +81,7 @@ With these modules, it is possible to achieve interactive, responsive game audio
 
 
 ## Installation
-**Compatibility Note:** Currently, the pre-built native plugin is provided for **macOS (Intel & Apple Silicon Universal)** only. Windows and Linux support is planned. You can build from source for other platforms if needed.
+**Compatibility Note:** Currently, the pre-built modules are provided for **macOS (Intel & Apple Silicon Universal)** only. Windows and Linux support is planned. You can build from source for other platforms if needed.
 
 1. Download the latest Telepath release from the [releases page](https://github.com/teriyake/Telepath_VCVRack/releases)
 2. Extract the ZIP file to your VCVRack plugins folder:

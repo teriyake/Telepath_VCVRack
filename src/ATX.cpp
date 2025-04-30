@@ -1,5 +1,4 @@
 #include "ATX.hpp"
-
 #include "plugin.hpp"
 
 #ifdef _WIN32

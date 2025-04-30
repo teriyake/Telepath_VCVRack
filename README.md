@@ -1,6 +1,6 @@
 # Telepath (VCVRack)
 
-*Telepath* is a bi-directional communication bridge between VCV Rack and Unity, enabling real-time interaction between your game and modular synthesizer patches. This repo, 1/2 of *Telepath*, contains a collection of VCVRack modules for receiving control voltages from Unity, sending modulation signals back, and streaming audio directly into Unity's audio system.
+*Telepath* is a bi-directional communication bridge between VCVRack and Unity, enabling real-time interaction between your game and modular synthesizer patches. This repo, 1/2 of *Telepath*, contains a collection of VCVRack modules for receiving control voltages from Unity, sending modulation signals back, and streaming audio directly into Unity's audio system.
 
 The other half of *Telepath* (native plugin for Unity) can be found [here](https://github.com/teriyake/Telepath_Unity/tree/main).
 
@@ -81,24 +81,36 @@ With these modules, it is possible to achieve interactive, responsive game audio
 
 
 ## Installation
-**Compatibility Note:** Currently, the pre-built native plugin is provided for **macOS (Intel & Apple Silicon Universal)** only. Windows and Linux support is planned. You can build from source for other platforms if needed.
+**Compatibility:** This plugin is designed to be cross-platform and can be built from source for **macOS**, **Windows**, and **Linux**. Pre-built binaries for macOS can be found on the releases page.
 
-1. Download the latest Telepath release from the [releases page](https://github.com/teriyake/Telepath_VCVRack/releases)
-2. Extract the ZIP file to your VCVRack plugins folder:
-   - macOS: `Documents/Rack2/plugins/`
-3. Restart VCV Rack
-4. Add Telepath modules to your patch from the module browser
+1. Download the latest Telepath release from the [releases page](https://github.com/teriyake/Telepath_VCVRack/releases) (if available for your platform).
+2. Extract the ZIP file to your [VCVRack plugins folder](https://vcvrack.com/manual/FAQ#Where-is-the-Rack-user-folder):
+3. Restart VCVRack.
+4. Add Telepath modules to your patch from the module browser.
 
 Alternatively, you can build the modules from source:
-1. Clone this repo: 
-```bash
-git clone https://github.com/teriyake/Telepath_VCVRack Telepath_VCV && cd Telepath_VCV
-```
-2. Build:
-```bash
-chmod +x ./build.sh && ./build.sh
-```
-3. Copy `dist/Telepath` to your VCVRack plugins folder
+
+**Prerequisites:**
+- A C++17 compatible compiler (GCC, Clang, MSVC, MINGW)
+- `make`
+- Git
+
+**Steps:**
+1. Clone the VCVRack SDK if you haven't already. The plugin needs to be placed within the SDK's `plugins/` directory Alternatively, you can set `RACK_DIR` to the location of your Rack SDK and build from anywhere.
+2. Clone this repository into the `plugins/` directory:
+   ```bash
+   # Navigate to your Rack SDK directory first
+   cd Rack-SDK
+   git clone https://github.com/teriyake/Telepath_VCVRack plugins/Telepath && cd plugins/Telepath
+   ```
+3. Build the plugin:
+   ```bash
+   make
+   make dist
+   ```
+4. The compiled plugin will be located in the `dist/` directory. You can either:
+    * Run VCVRack from the SDK root directory (`cd ../.. && ./Rack`), which will automatically load the plugin.
+    * Copy the `dist/Telepath` directory to your user plugins folder (see paths above).
 
 ## Getting Started
 
@@ -131,23 +143,7 @@ This is just one approach, and you can do a lot of cool things!
 
 ## Troubleshooting
 
-### No incoming OSC data in Telepath Listen
-- Verify Unity is sending data with `TelepathManager.SendGameData()`
-- Check port numbers match between Unity and VCV Rack
-- Ensure no firewall is blocking UDP traffic on the specified port
-- Look for connection status LED on the module
-
-### No values received in Unity from Telepath Transmit
-- Verify Unity is listening with `TelepathManager.InitializeTelepathListener()`
-- Check port numbers match between Unity and VCV Rack
-- Ensure values are within normal CV range
-- Try increasing the transmission rate
-
-### Audio stream not working
-- Verify Unity is listening with `TelepathManager.InitializeTelepathAudioListener()`
-- Check port numbers match between Unity and VCV Rack
-- Ensure audio inputs are connected to Telepath Stream
-- Check gain settings and input levels
+See tips [here](https://github.com/teriyake/Telepath_Unity/tree/main?tab=readme-ov-file#troubleshooting).
 
 ## Technical Notes
 
@@ -169,7 +165,7 @@ Telepath uses standard OSC messages over UDP:
 
 - [Telepath Unity Plugin](https://github.com/teriyake/Telepath_Unity)
 - [OSC Protocol Specification](https://opensoundcontrol.stanford.edu/spec-1_0.html)
-- [VCV Rack Manual](https://vcvrack.com/manual/)
+- [VCVRack Manual](https://vcvrack.com/manual/)
 
 ## License
 

@@ -1,0 +1,41 @@
+{
+  "slug": "Telepath",
+  "name": "Telepath",
+  "version": "2.0.0",
+  "license": "MIT",
+  "brand": "Telepath",
+  "author": "teriyake",
+  "authorEmail": "",
+  "authorUrl": "",
+  "pluginUrl": "",
+  "manualUrl": "",
+  "sourceUrl": "",
+  "donateUrl": "",
+  "changelogUrl": "",
+  "modules": [
+    {
+      "slug": "Listen",
+      "name": "Listen",
+      "description": "Receives OSC messages as CVs",
+      "tags": [
+        "Utility"
+      ]
+    },
+    {
+      "slug": "Transmit",
+      "name": "Transmit",
+      "description": "Sends voltages as OSC messages to the destination port of a given IP address",
+      "tags": [
+        "Utility"
+      ]
+    },
+    {
+      "slug": "ATX",
+      "name": "Stream",
+      "description": "Sends audio to the destination port of a given IP address",
+      "tags": [
+        "Utility"
+      ]
+    }
+  ]
+}

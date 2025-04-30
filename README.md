@@ -129,26 +129,6 @@ This is just one approach, and you can do a lot of cool things!
 4. In Unity, listen for these messages using `TelepathManager.GetNextOscMessage()`
 5. Use received values to control game elements like particle systems, lighting, or camera effects...
 
-## Troubleshooting
-
-### No incoming OSC data in Telepath Listen
-- Verify Unity is sending data with `TelepathManager.SendGameData()`
-- Check port numbers match between Unity and VCV Rack
-- Ensure no firewall is blocking UDP traffic on the specified port
-- Look for connection status LED on the module
-
-### No values received in Unity from Telepath Transmit
-- Verify Unity is listening with `TelepathManager.InitializeTelepathListener()`
-- Check port numbers match between Unity and VCV Rack
-- Ensure values are within normal CV range
-- Try increasing the transmission rate
-
-### Audio stream not working
-- Verify Unity is listening with `TelepathManager.InitializeTelepathAudioListener()`
-- Check port numbers match between Unity and VCV Rack
-- Ensure audio inputs are connected to Telepath Stream
-- Check gain settings and input levels
-
 ## Technical Notes
 
 ### OSC Message Format

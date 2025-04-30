@@ -81,7 +81,7 @@ With these modules, it is possible to achieve interactive, responsive game audio
 
 
 ## Installation
-**Compatibility:** This plugin is designed to be cross-platform and can be built from source for **macOS**, **Windows**, and **Linux**. Pre-built binaries for macOS can be found on the releases page.
+*Compatibility:** This plugin is designed to be cross-platform and can be built from source for **macOS**, **Windows**, and **Linux**. Pre-built binaries for macOS can be found on the releases page.
 
 1. Download the latest Telepath release from the [releases page](https://github.com/teriyake/Telepath_VCVRack/releases) (if available for your platform).
 2. Extract the ZIP file to your [VCVRack plugins folder](https://vcvrack.com/manual/FAQ#Where-is-the-Rack-user-folder):
